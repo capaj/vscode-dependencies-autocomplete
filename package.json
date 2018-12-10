@@ -31,13 +31,7 @@
   ],
   "main": "./bootstrap",
   "contributes": {
-    "commands": [
-      {
-        "title": "clear and reload exports cache",
-        "category": "vscode-dependencies-autocomplete",
-        "command": "vscode-dependencies-autocomplete.refreshCache"
-      }
-    ],
+    "commands": [],
     "configuration": {
       "type": "object",
       "title": "vscode-dependencies-autocomplete",
@@ -102,7 +96,6 @@
     "test": "node ./node_modules/vscode/bin/test && ava"
   },
   "devDependencies": {
-    "@types/babylon": "^6.16.4",
     "@types/lodash": "^4.14.118",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.12",
@@ -123,7 +116,6 @@
     "@babel/parser": "^7.2.0",
     "@babel/types": "^7.2.0",
     "babel-traverse": "^6.26.0",
-    "babylon": "^6.18.0",
     "babylon-undeclared-identifiers": "^1.0.1",
     "get-exports-from-file": "^0.5.0",
     "jest-changed-files": "^23.4.2",
