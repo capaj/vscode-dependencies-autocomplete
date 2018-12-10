@@ -1,0 +1,142 @@
+{
+  "name": "vscode-dependencies-autocomplete",
+  "displayName": "exports autocomplete",
+  "description": "autocompletes javascript module exports from your project",
+  "version": "0.0.1",
+  "publisher": "capaj",
+  "engines": {
+    "vscode": "^1.5.0"
+  },
+  "galleryBanner": {
+    "color": "#f5da55",
+    "theme": "dark"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "javascript",
+    "modules",
+    "imports",
+    "exports",
+    "auto import",
+    "dependencies"
+  ],
+  "icon": "images/npm-cube.png",
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact"
+  ],
+  "main": "./bootstrap",
+  "contributes": {
+    "commands": [
+      {
+        "title": "clear and reload exports cache",
+        "category": "vscode-dependencies-autocomplete",
+        "command": "vscode-dependencies-autocomplete.refreshCache"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "vscode-dependencies-autocomplete",
+      "properties": {
+        "vscode-dependencies-autocomplete.indentationOverride": {
+          "type": "string",
+          "default": null,
+          "description": "generated import statements will always be indented using this string if it is set"
+        },
+        "vscode-dependencies-autocomplete.minimumWordLengthToImportOnPaste": {
+          "type": "number",
+          "default": 2,
+          "description": "set this to a higher value if 'on paste' is too aggressive for you"
+        },
+        "vscode-dependencies-autocomplete.addImportsOnPaste": {
+          "type": "boolean",
+          "default": true,
+          "description": "set this to false when you don't want to have imports added on pasting code"
+        },
+        "vscode-dependencies-autocomplete.addSpacingAroundCurlyBraces": {
+          "type": "boolean",
+          "default": true,
+          "description": "set this to true when you prefer spaces around curly braces"
+        },
+        "vscode-dependencies-autocomplete.built-in-modules": {
+          "type": "string",
+          "default": "when @types/node",
+          "enum": [
+            "always",
+            "when @types/node",
+            "never"
+          ],
+          "description": "this allows to override the import style and force the imports to use this string as quotes"
+        },
+        "vscode-dependencies-autocomplete.quoteCharOverride": {
+          "type": "string",
+          "default": null,
+          "enum": [
+            "'",
+            "\"",
+            "`"
+          ],
+          "description": "this allows to override the import style and force the imports to use this string as quotes"
+        }
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capaj/vscode-dependencies-autocomplete.git"
+  },
+  "author": "capajj@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/capaj/vscode-dependencies-autocomplete/issues"
+  },
+  "homepage": "https://github.com/capaj/vscode-dependencies-autocomplete#readme",
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "watch": "tsc -watch -p ./",
+    "compile": "tsc -p ./",
+    "test": "node ./node_modules/vscode/bin/test && ava"
+  },
+  "devDependencies": {
+    "@types/babylon": "^6.16.4",
+    "@types/lodash": "^4.14.118",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.12",
+    "ava": "^0.25.0",
+    "husky": "^1.2.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.15.3",
+    "pretty-quick": "^1.8.0",
+    "typescript": "^3.2.2",
+    "vscode": "^1.1.26"
+  },
+  "ava": {
+    "files": [
+      "lib/**/*.spec.js"
+    ]
+  },
+  "dependencies": {
+    "@babel/parser": "^7.2.0",
+    "@babel/types": "^7.2.0",
+    "babel-traverse": "^6.26.0",
+    "babylon": "^6.18.0",
+    "babylon-undeclared-identifiers": "^1.0.1",
+    "get-exports-from-file": "^0.5.0",
+    "jest-changed-files": "^23.4.2",
+    "libnpmsearch": "^2.0.0",
+    "lodash": "^4.17.11",
+    "lodash.camelcase": "^4.3.0",
+    "mkdirp": "^0.5.1",
+    "mock-require": "^3.0.2",
+    "mz": "^2.7.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
