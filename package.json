@@ -93,7 +93,7 @@
     "postinstall": "node ./node_modules/vscode/bin/install",
     "watch": "tsc -watch -p ./",
     "compile": "tsc -p ./",
-    "publish": "yarn compile && vsce publish",
+    "pub": "yarn compile && vsce publish",
     "test": "node ./node_modules/vscode/bin/test && ava"
   },
   "devDependencies": {
