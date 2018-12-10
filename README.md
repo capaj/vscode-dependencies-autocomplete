@@ -10,19 +10,10 @@
 
 Typescript does a great job at offering autocompletion for libraries which have typings, but unfortunatelly it fails to acknowledge any modules without them. Here's where this extension comes in-parses your package.json and adds those to your autocompletion provider.
 
-Another nifty feature is adding imports when you paste some code, see:
-
-![adding on paste](images//add-imports-on-paste.gif)
-
-### List of libs to include even when they aren't added
-
-You can define libs that you use often to be offered even when not installed.
-
 ## Extension Settings
 
 This extension has the following settings:
 
-- `vscode-dependencies-autocomplete.enable`: enable/disable this extension
 - `vscode-dependencies-autocomplete.addImportsOnPaste`: set this to false when you're annoyed by import tokens being added on paste
 - `vscode-dependencies-autocomplete.minimumWordLengthToImportOnPaste`: set this to a higher value if 'on paste' is too aggressive for you
 - `vscode-dependencies-autocomplete.enableNpmDependencies`: set this to false when you're annoyed by the stuff you get from your npm modules\*
