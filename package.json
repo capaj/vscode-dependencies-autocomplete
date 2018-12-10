@@ -1,14 +1,14 @@
 {
   "name": "vscode-dependencies-autocomplete",
-  "displayName": "exports autocomplete",
-  "description": "autocompletes javascript module exports from your project",
-  "version": "0.0.1",
+  "displayName": "dependencies autocomplete",
+  "description": "autocompletes package.json dependencies in JS/TS files",
+  "version": "0.0.2",
   "publisher": "capaj",
   "engines": {
     "vscode": "^1.5.0"
   },
   "galleryBanner": {
-    "color": "#f5da55",
+    "color": "#CE000A",
     "theme": "dark"
   },
   "categories": [
@@ -93,6 +93,7 @@
     "postinstall": "node ./node_modules/vscode/bin/install",
     "watch": "tsc -watch -p ./",
     "compile": "tsc -p ./",
+    "publish": "yarn compile && vsce publish",
     "test": "node ./node_modules/vscode/bin/test && ava"
   },
   "devDependencies": {
